@@ -9,12 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Locação Imóvel</title>
+    <title>Locação Imóvel - Cadastramento de Casas</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand active" href="/">AppAluguel</a>
+        <a class="navbar-brand" href="/">AppAluguel</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,20 +38,22 @@
                     <a class="nav-link" href="/studio/lista">Studio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/casa/lista">Casa</a>
+                    <a class="nav-link active" href="/casa/lista">Casa</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/imovel/lista" role="button" data-bs-toggle="dropdown">Imóvel</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/sala-comercial/lista">Sala Comercial</a></li>
-                        <li><a class="dropdown-item" href="/studio/lista">Studio</a></li>
-                        <li><a class="dropdown-item" href="/casa/lista">Casa</a></li>
-                    </ul>
-                </li>
+<%--                <li class="nav-item dropdown">--%>
+<%--                    <a class="nav-link dropdown-toggle" href="/imovel/lista" role="button" data-bs-toggle="dropdown">Imóvel</a>--%>
+<%--                    <ul class="dropdown-menu">--%>
+<%--                        <li><a class="dropdown-item" href="/sala-comercial/lista">Sala Comercial</a></li>--%>
+<%--                        <li><a class="dropdown-item" href="/studio/lista">Studio</a></li>--%>
+<%--                        <li><a class="dropdown-item" href="/casa/lista">Casa</a></li>--%>
+<%--                    </ul>--%>
+<%--                </li>--%>
             </ul>
         </div>
     </div>
 </nav>
-    Pedro Lopes
+<div class="container mt-3">
+    <h3>Casas</h3>
+</div>
 </body>
 </html>
