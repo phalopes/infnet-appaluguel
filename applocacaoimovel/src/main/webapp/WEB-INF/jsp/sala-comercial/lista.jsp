@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!doctype html>
 <html lang="pt-br">
@@ -54,6 +55,33 @@
 </nav>
 <div class="container mt-3">
     <h3>Salas Comerciais</h3>
+    <p>Abaixo seguem as Salas Comerciais disponíveis para Aluguel:</p>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Código</th>
+            <th>Valor</th>
+            <th>Endereço</th>
+            <th>Possui Recepção</th>
+            <th>Qtd. Elevadores</th>
+            <th>Valor Condomínio</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="item" items="${listagem}">
+            <tr>
+                <td>${item.codigo}</td>
+                <td>${item.valor}</td>
+                <td>${item.endereco}</td>
+                <td>${item.recepcao}</td>
+                <td>${item.elevadores}</td>
+                <td>${item.condominio}</td>
+                <td></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>
