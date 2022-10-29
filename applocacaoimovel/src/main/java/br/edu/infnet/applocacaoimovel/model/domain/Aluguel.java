@@ -6,6 +6,26 @@ public class Aluguel {
     private int periodo;
     private LocalDateTime inicio;
     private boolean web;
+    private Cliente cliente;
+
+    public Aluguel() {
+        this.periodo = 30;
+        this.inicio = LocalDateTime.now();
+        this.web = true;
+    }
+
+    public Aluguel(Cliente cliente) {
+        this();
+        this.cliente = cliente;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 
     public int getPeriodo() {
         return periodo;
@@ -33,6 +53,6 @@ public class Aluguel {
 
     @Override
     public String toString() {
-        return periodo + "; " + inicio + "; " + web;
+        return cliente + ": " + periodo + "; " + inicio + "; " + web;
     }
 }
