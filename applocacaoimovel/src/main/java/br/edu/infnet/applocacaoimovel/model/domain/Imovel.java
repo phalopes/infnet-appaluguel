@@ -1,11 +1,20 @@
 package br.edu.infnet.applocacaoimovel.model.domain;
 
 public abstract class Imovel {
+    private int id;
     private String endereco;
     private float valor;
     private float metragem;
     private boolean acessivel;
-    private int codigo;
+    private String codigo;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getEndereco() {
         return endereco;
@@ -39,16 +48,16 @@ public abstract class Imovel {
         this.acessivel = acessivel;
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
     @Override
     public String toString() {
-        return endereco + "; " + valor + "; " + metragem + "; " + acessivel + "; " + codigo;
+        return id + "; " + endereco + "; " + valor + "; " + metragem + "; " + acessivel + "; " + codigo;
     }
 }

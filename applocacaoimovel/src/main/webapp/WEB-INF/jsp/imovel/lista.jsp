@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!doctype html>
 <html lang="pt-br">
@@ -9,12 +10,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Locação Imóvel</title>
+    <title>Locação Imóvel - Cadastramento de Imóveis</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand active" href="/">AppAluguel</a>
+        <a class="navbar-brand" href="/">AppAluguel</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -26,10 +27,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/cliente/lista">Cliente</a>
                 </li>
-
-                <%-- TODO: Escolher tipo de menu de acordo com as funcionalidades necessárias --%>
                 <li class="nav-item">
-                    <a class="nav-link" href="/imovel/lista">Imóvel</a>
+                    <a class="nav-link active" href="/imovel/lista">Imóvel</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/sala-comercial/lista">Sala Comercial</a>
@@ -40,18 +39,47 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/casa/lista">Casa</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/imovel/lista" role="button" data-bs-toggle="dropdown">Imóvel</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/sala-comercial/lista">Sala Comercial</a></li>
-                        <li><a class="dropdown-item" href="/studio/lista">Studio</a></li>
-                        <li><a class="dropdown-item" href="/casa/lista">Casa</a></li>
-                    </ul>
-                </li>
             </ul>
         </div>
     </div>
 </nav>
-    Pedro Lopes
+<div class="container mt-3">
+    <h3>Imóveis: ${listagem.size()}</h3>
+    <c:choose>
+        <c:when test="${listagem.size() == 0}">
+            <p>Ainda não há Imóveis cadastrados no sistema.</p>
+        </c:when>
+        <c:otherwise>
+            <p>Abaixo seguem os Imóveis disponíveis para Aluguel:</p>
+        </c:otherwise>
+    </c:choose>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Código</th>
+            <th>Valor</th>
+            <th>M<sup>2</sup></th>
+            <th>Endereço</th>
+            <th>Acessível</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="item" items="${listagem}">
+            <tr>
+                <td>${item.id}</td>
+                <td>${item.codigo}</td>
+                <td>${item.valor}</td>
+                <td>${item.metragem}</td>
+                <td>${item.endereco}</td>
+                <td><c:choose><c:when test="${item.acessivel}">Sim</c:when><c:otherwise>Não</c:otherwise></c:choose></td>
+                <td><a href="/imovel/${item.id}/excluir" class="btn btn-danger">Excluir</a></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
