@@ -18,8 +18,8 @@ public class AluguelTeste implements ApplicationRunner {
 
         // CLIENTES
 
-        Cliente cl1 = new Cliente("Cliente 1", "123456", "(11)123-444");
-        Cliente cl2 = new Cliente("Cliente 2", "456789", "(11)789-444");
+        Cliente cl1 = new Cliente("Cliente 1", "12345678912", "(11)123-444");
+        Cliente cl2 = new Cliente("Cliente 2", "45678912341", "(11)789-444");
 
         // IMOVEIS
         Studio std1 = new Studio();
@@ -27,7 +27,7 @@ public class AluguelTeste implements ApplicationRunner {
         std1.setEndereco("Rua 1");
         std1.setAcessivel(false);
         std1.setMetragem(45.5f);
-        std1.setCodigo(4551);
+        std1.setCodigo("STD002");
         std1.setAndar(2);
         std1.setPortaria(false);
         std1.setCondominio(350.0f);
@@ -37,7 +37,7 @@ public class AluguelTeste implements ApplicationRunner {
         cs1.setEndereco("Rua 1");
         cs1.setAcessivel(false);
         cs1.setMetragem(45.5f);
-        cs1.setCodigo(4551);
+        cs1.setCodigo("CS456");
         cs1.setQuartos(2);
         cs1.setQuintal(false);
         cs1.setCor("Laranja");
@@ -47,7 +47,7 @@ public class AluguelTeste implements ApplicationRunner {
         slc1.setEndereco("Rua 1");
         slc1.setAcessivel(false);
         slc1.setMetragem(45.5f);
-        slc1.setCodigo(4551);
+        slc1.setCodigo("SLC106");
         slc1.setRecepcao(true);
         slc1.setElevadores(2);
         slc1.setCondominio(350.0f);

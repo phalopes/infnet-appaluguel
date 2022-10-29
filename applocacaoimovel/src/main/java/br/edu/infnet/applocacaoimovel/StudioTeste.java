@@ -16,7 +16,7 @@ public class StudioTeste implements ApplicationRunner {
         std1.setEndereco("Rua 1");
         std1.setAcessivel(false);
         std1.setMetragem(45.5f);
-        std1.setCodigo(4551);
+        std1.setCodigo("STD4551");
         std1.setAndar(2);
         std1.setPortaria(false);
         std1.setCondominio(350.0f);
@@ -27,7 +27,7 @@ public class StudioTeste implements ApplicationRunner {
         std2.setEndereco("Rua Faria Lima");
         std2.setAcessivel(true);
         std2.setMetragem(95.5f);
-        std2.setCodigo(7895);
+        std2.setCodigo("STD7895");
         std2.setAndar(16);
         std2.setPortaria(true);
         std2.setCondominio(350.0f);
@@ -38,7 +38,7 @@ public class StudioTeste implements ApplicationRunner {
         std3.setEndereco("Rua 78");
         std3.setAcessivel(false);
         std3.setMetragem(25.0f);
-        std3.setCodigo(5548);
+        std3.setCodigo("STD5548");
         std3.setAndar(9);
         std3.setPortaria(true);
         std3.setCondominio(650.0f);

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!doctype html>
 <html lang="pt-br">
@@ -41,14 +41,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/casa/lista">Casa</a>
                 </li>
-<%--                <li class="nav-item dropdown">--%>
-<%--                    <a class="nav-link dropdown-toggle" href="/imovel/lista" role="button" data-bs-toggle="dropdown">Imóvel</a>--%>
-<%--                    <ul class="dropdown-menu">--%>
-<%--                        <li><a class="dropdown-item" href="/sala-comercial/lista">Sala Comercial</a></li>--%>
-<%--                        <li><a class="dropdown-item" href="/studio/lista">Studio</a></li>--%>
-<%--                        <li><a class="dropdown-item" href="/casa/lista">Casa</a></li>--%>
-<%--                    </ul>--%>
-<%--                </li>--%>
             </ul>
         </div>
     </div>
@@ -62,6 +54,7 @@
             <th>Código</th>
             <th>Valor</th>
             <th>Endereço</th>
+            <th>Acessível</th>
             <th>Possui Recepção</th>
             <th>Qtd. Elevadores</th>
             <th>Valor Condomínio</th>
@@ -74,7 +67,8 @@
                 <td>${item.codigo}</td>
                 <td>${item.valor}</td>
                 <td>${item.endereco}</td>
-                <td>${item.recepcao}</td>
+                <td><c:choose><c:when test="${item.acessivel}">Sim</c:when><c:otherwise>Não</c:otherwise></c:choose></td>
+                <td><c:choose><c:when test="${item.recepcao}">Sim</c:when><c:otherwise>Não</c:otherwise></c:choose></td>
                 <td>${item.elevadores}</td>
                 <td>${item.condominio}</td>
                 <td></td>

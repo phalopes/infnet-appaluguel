@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!doctype html>
 <html lang="pt-br">
@@ -40,20 +41,41 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/casa/lista">Casa</a>
                 </li>
-<%--                <li class="nav-item dropdown">--%>
-<%--                    <a class="nav-link dropdown-toggle" href="/imovel/lista" role="button" data-bs-toggle="dropdown">Imóvel</a>--%>
-<%--                    <ul class="dropdown-menu">--%>
-<%--                        <li><a class="dropdown-item" href="/sala-comercial/lista">Sala Comercial</a></li>--%>
-<%--                        <li><a class="dropdown-item" href="/studio/lista">Studio</a></li>--%>
-<%--                        <li><a class="dropdown-item" href="/casa/lista">Casa</a></li>--%>
-<%--                    </ul>--%>
-<%--                </li>--%>
             </ul>
         </div>
     </div>
 </nav>
 <div class="container mt-3">
     <h3>Studios</h3>
+    <p>Abaixo seguem os Studios disponíveis para Aluguel:</p>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Código</th>
+            <th>Valor</th>
+            <th>Endereço</th>
+            <th>Acessível</th>
+            <th>Andar</th>
+            <th>Possui Portaria</th>
+            <th>Valor Condomínio</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="item" items="${listagem}">
+            <tr>
+                <td>${item.codigo}</td>
+                <td>${item.valor}</td>
+                <td>${item.endereco}</td>
+                <td><c:choose><c:when test="${item.acessivel}">Sim</c:when><c:otherwise>Não</c:otherwise></c:choose></td>
+                <td>${item.andar}</td>
+                <td><c:choose><c:when test="${item.portaria}">Sim</c:when><c:otherwise>Não</c:otherwise></c:choose></td>
+                <td>${item.condominio}</td>
+                <td></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>

@@ -5,7 +5,7 @@ public abstract class Imovel {
     private float valor;
     private float metragem;
     private boolean acessivel;
-    private int codigo;
+    private String codigo;
 
     public String getEndereco() {
         return endereco;
@@ -39,11 +39,11 @@ public abstract class Imovel {
         this.acessivel = acessivel;
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 

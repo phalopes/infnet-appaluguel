@@ -15,7 +15,7 @@ public class CasaTeste implements ApplicationRunner {
         cs1.setEndereco("Rua 1");
         cs1.setAcessivel(false);
         cs1.setMetragem(45.5f);
-        cs1.setCodigo(4551);
+        cs1.setCodigo("CS4551");
         cs1.setQuartos(2);
         cs1.setQuintal(false);
         cs1.setCor("Laranja");
@@ -26,7 +26,7 @@ public class CasaTeste implements ApplicationRunner {
         cs2.setEndereco("Rua 2");
         cs2.setAcessivel(true);
         cs2.setMetragem(95.5f);
-        cs2.setCodigo(7895);
+        cs2.setCodigo("CS7895");
         cs2.setQuartos(4);
         cs2.setQuintal(true);
         cs2.setCor("Branco");
@@ -37,7 +37,7 @@ public class CasaTeste implements ApplicationRunner {
         cs3.setEndereco("Rua 1");
         cs3.setAcessivel(true);
         cs3.setMetragem(205.5f);
-        cs3.setCodigo(551);
+        cs3.setCodigo("CS551");
         cs3.setQuartos(3);
         cs3.setQuintal(true);
         cs3.setCor("Verde");

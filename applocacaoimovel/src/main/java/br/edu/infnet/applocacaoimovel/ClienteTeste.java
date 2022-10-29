@@ -11,13 +11,13 @@ public class ClienteTeste implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("## Cliente ##");
 
-        Cliente cl1 = new Cliente("Fulano", "123456", "(11)123-444");
+        Cliente cl1 = new Cliente("Cliente 1", "12345678912", "(11)123-444");
         System.out.println(cl1);
 
-        Cliente cl2 = new Cliente("Siclano", "456789", "(11)789-555");
+        Cliente cl2 = new Cliente("Siclano", "45678912341", "(11)789-555");
         System.out.println(cl2);
 
-        Cliente cl3 = new Cliente("Maria", "789123", "(11)456-666");
+        Cliente cl3 = new Cliente("Maria", "45678912341", "(11)789-444");
         System.out.println(cl3);
     }
 }
