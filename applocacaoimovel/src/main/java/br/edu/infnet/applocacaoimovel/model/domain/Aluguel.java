@@ -1,19 +1,19 @@
 package br.edu.infnet.applocacaoimovel.model.domain;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Aluguel {
     private int periodo;
-    private LocalDateTime inicio;
+    private LocalDate inicio;
     private boolean web;
     private Cliente cliente;
     private List<Imovel> imoveis;
 
     public Aluguel() {
         this.periodo = 30;
-        this.inicio = LocalDateTime.now().plusDays(30) ;
+        this.inicio = LocalDate.now().plusDays(30) ;
         this.web = true;
         this.imoveis = new ArrayList<>();
     }
@@ -39,11 +39,11 @@ public class Aluguel {
         this.periodo = periodo;
     }
 
-    public LocalDateTime getInicio() {
+    public LocalDate getInicio() {
         return inicio;
     }
 
-    public void setInicio(LocalDateTime inicio) {
+    public void setInicio(LocalDate inicio) {
         this.inicio = inicio;
     }
 

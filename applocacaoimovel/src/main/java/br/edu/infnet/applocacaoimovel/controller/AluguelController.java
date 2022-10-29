@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -70,13 +71,13 @@ public class AluguelController {
         al1.setImoveis(imoveisPrimeiroPedido);
 
         Aluguel al2 = new Aluguel();
-        al2.setInicio(LocalDateTime.of(2023, 12, 25, 0, 0));
+        al2.setInicio(LocalDate.of(2023, 12, 25));
         al2.setPeriodo(24);
         al2.setCliente(cl1);
         al2.setImoveis(imoveisSegundoPedido);
 
         Aluguel al3 = new Aluguel();
-        al3.setInicio(LocalDateTime.of(2022, 12, 25, 0, 0));
+        al3.setInicio(LocalDate.of(2022, 12, 25));
         al3.setWeb(false);
         al3.setCliente(cl2);
         al3.setImoveis(imoveisTerceiroPedido);

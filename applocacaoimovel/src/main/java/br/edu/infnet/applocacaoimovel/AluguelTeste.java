@@ -5,7 +5,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,14 +71,14 @@ public class AluguelTeste implements ApplicationRunner {
         System.out.println(al1);
 
         Aluguel al2 = new Aluguel();
-        al2.setInicio(LocalDateTime.of(2023, 12, 25, 0, 0));
+        al2.setInicio(LocalDate.of(2023, 12, 25));
         al2.setPeriodo(24);
         al2.setCliente(cl1);
         al2.setImoveis(imoveisSegundoPedido);
         System.out.println(al2);
 
         Aluguel al3 = new Aluguel();
-        al3.setInicio(LocalDateTime.of(2022, 12, 25, 0, 0));
+        al3.setInicio(LocalDate.of(2022, 12, 25));
         al3.setWeb(false);
         al3.setCliente(cl2);
         al3.setImoveis(imoveisTerceiroPedido);
