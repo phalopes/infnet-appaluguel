@@ -44,8 +44,16 @@
     </div>
 </nav>
 <div class="container mt-3">
-    <h3>Clientes</h3>
-    <p>Abaixo seguem os clientes cadastrados no Sistema:</p>
+    <h3>Clientes: ${listagem.size()}</h3>
+    <c:choose>
+        <c:when test="${listagem.size() == 0}">
+            <p>Ainda não há Clientes cadastrados no sistema.</p>
+        </c:when>
+        <c:otherwise>
+            <p>Abaixo seguem os clientes cadastrados no Sistema:</p>
+        </c:otherwise>
+    </c:choose>
+
     <table class="table table-striped">
         <thead>
         <tr>
@@ -63,7 +71,7 @@
                 <td>${item.nome}</td>
                 <td>${item.cpf}</td>
                 <td>${item.telefone}</td>
-                <td></td>
+                <td><a href="/cliente/${item.id}/excluir" class="btn btn-danger">Excluir</a></td>
             </tr>
         </c:forEach>
         </tbody>

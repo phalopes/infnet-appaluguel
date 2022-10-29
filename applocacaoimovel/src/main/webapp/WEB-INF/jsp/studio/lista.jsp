@@ -46,8 +46,16 @@
     </div>
 </nav>
 <div class="container mt-3">
-    <h3>Studios</h3>
-    <p>Abaixo seguem os Studios disponíveis para Aluguel:</p>
+    <h3>Studios: ${listagem.size()}</h3>
+    <c:choose>
+        <c:when test="${listagem.size() == 0}">
+            <p>Ainda não há Studios cadastrados no sistema.</p>
+        </c:when>
+        <c:otherwise>
+            <p>Abaixo seguem os Studios disponíveis para Aluguel:</p>
+        </c:otherwise>
+    </c:choose>
+
     <table class="table table-striped">
         <thead>
         <tr>
@@ -75,7 +83,7 @@
                 <td>${item.andar}</td>
                 <td><c:choose><c:when test="${item.portaria}">Sim</c:when><c:otherwise>Não</c:otherwise></c:choose></td>
                 <td>${item.condominio}</td>
-                <td></td>
+                <td><a href="/studio/${item.id}/excluir" class="btn btn-danger">Excluir</a></td>
             </tr>
         </c:forEach>
         </tbody>

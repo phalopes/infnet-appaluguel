@@ -4,6 +4,7 @@ import br.edu.infnet.applocacaoimovel.model.domain.SalaComercial;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.*;
 
@@ -27,5 +28,12 @@ public class SalaComercialController {
         model.addAttribute("listagem", obterLista());
 
         return "sala-comercial/lista";
+    }
+
+    @GetMapping(value = "/sala-comercial/{id}/excluir")
+    public String exclusao(@PathVariable Integer id){
+        System.out.println("ID: " + id);
+        mapa.remove(id);
+        return "redirect:/sala-comercial/lista";
     }
 }

@@ -1,10 +1,10 @@
 package br.edu.infnet.applocacaoimovel.controller;
 
-import br.edu.infnet.applocacaoimovel.model.domain.Casa;
 import br.edu.infnet.applocacaoimovel.model.domain.Studio;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.*;
 
@@ -28,5 +28,12 @@ public class StudioController {
         model.addAttribute("listagem", obterLista());
 
         return "studio/lista";
+    }
+
+    @GetMapping(value = "/studio/{id}/excluir")
+    public String exclusao(@PathVariable Integer id){
+        System.out.println("ID: " + id);
+        mapa.remove(id);
+        return "redirect:/studio/lista";
     }
 }

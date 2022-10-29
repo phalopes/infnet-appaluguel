@@ -4,6 +4,7 @@ import br.edu.infnet.applocacaoimovel.model.domain.Aluguel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -24,10 +25,17 @@ public class AluguelController {
     }
 
     @GetMapping(value = "/aluguel/lista")
-    public String telaLista(Model model) throws Exception {
+    public String telaLista(Model model) {
 
         model.addAttribute("listagem", obterLista());
 
         return "aluguel/lista";
+    }
+
+    @GetMapping(value = "/aluguel/{id}/excluir")
+    public String exclusao(@PathVariable Integer id){
+        System.out.println("ID: " + id);
+        mapa.remove(id);
+        return "redirect:/aluguel/lista";
     }
 }

@@ -44,8 +44,16 @@
     </div>
 </nav>
 <div class="container mt-3">
-    <h3>Imóveis</h3>
-    <p>Abaixo seguem os Imóveis disponíveis para Aluguel:</p>
+    <h3>Imóveis: ${listagem.size()}</h3>
+    <c:choose>
+        <c:when test="${listagem.size() == 0}">
+            <p>Ainda não há Imóveis cadastrados no sistema.</p>
+        </c:when>
+        <c:otherwise>
+            <p>Abaixo seguem os Imóveis disponíveis para Aluguel:</p>
+        </c:otherwise>
+    </c:choose>
+
     <table class="table table-striped">
         <thead>
         <tr>
@@ -67,7 +75,7 @@
                 <td>${item.metragem}</td>
                 <td>${item.endereco}</td>
                 <td><c:choose><c:when test="${item.acessivel}">Sim</c:when><c:otherwise>Não</c:otherwise></c:choose></td>
-                <td></td>
+                <td><a href="/imovel/${item.id}/excluir" class="btn btn-danger">Excluir</a></td>
             </tr>
         </c:forEach>
         </tbody>

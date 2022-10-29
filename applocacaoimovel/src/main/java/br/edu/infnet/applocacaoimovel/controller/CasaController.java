@@ -5,6 +5,7 @@ import br.edu.infnet.applocacaoimovel.model.domain.Cliente;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.*;
 
@@ -28,5 +29,12 @@ public class CasaController {
         model.addAttribute("listagem", obterLista());
 
         return "casa/lista";
+    }
+
+    @GetMapping(value = "/casa/{id}/excluir")
+    public String exclusao(@PathVariable Integer id){
+        System.out.println("ID: " + id);
+        mapa.remove(id);
+        return "redirect:/casa/lista";
     }
 }

@@ -4,6 +4,7 @@ import br.edu.infnet.applocacaoimovel.model.domain.Cliente;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -28,5 +29,12 @@ public class ClienteController {
         model.addAttribute("listagem", obterLista());
 
         return "cliente/lista";
+    }
+
+    @GetMapping(value = "/cliente/{id}/excluir")
+    public String exclusao(@PathVariable Integer id){
+        System.out.println("ID: " + id);
+        mapa.remove(id);
+        return "redirect:/cliente/lista";
     }
 }
