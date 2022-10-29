@@ -1,5 +1,6 @@
 package br.edu.infnet.applocacaoimovel;
 
+import br.edu.infnet.applocacaoimovel.controller.SalaComercialController;
 import br.edu.infnet.applocacaoimovel.model.domain.SalaComercial;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -21,6 +22,7 @@ public class SalaComercialTeste implements ApplicationRunner {
         slc1.setElevadores(2);
         slc1.setCondominio(350.0f);
         System.out.println("SalaComercial " + slc1);
+        SalaComercialController.incluir(slc1);
 
         SalaComercial slc2 = new SalaComercial();
         slc2.setValor(4500.0f);
@@ -29,9 +31,10 @@ public class SalaComercialTeste implements ApplicationRunner {
         slc2.setMetragem(95.5f);
         slc2.setCodigo("SLC7895");
         slc2.setRecepcao(true);
-        slc2.setElevadores(2);
-        slc2.setCondominio(350.0f);
+        slc2.setElevadores(6);
+        slc2.setCondominio(1350.0f);
         System.out.println("SalaComercial " + slc2);
+        SalaComercialController.incluir(slc2);
 
         SalaComercial slc3 = new SalaComercial();
         slc3.setValor(1050.0f);
@@ -40,8 +43,9 @@ public class SalaComercialTeste implements ApplicationRunner {
         slc3.setMetragem(25.0f);
         slc3.setCodigo("SLC5548");
         slc3.setRecepcao(true);
-        slc3.setElevadores(2);
+        slc3.setElevadores(1);
         slc3.setCondominio(650.0f);
         System.out.println("SalaComercial " + slc3);
+        SalaComercialController.incluir(slc3);
     }
 }

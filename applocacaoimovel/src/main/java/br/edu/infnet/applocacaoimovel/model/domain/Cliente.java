@@ -1,16 +1,26 @@
 package br.edu.infnet.applocacaoimovel.model.domain;
 
-import java.util.List;
-
 public class Cliente {
+    private int id;
     private String nome;
     private String cpf;
     private String telefone;
 
+    public Cliente(){
+
+    }
     public Cliente(String nome, String cpf, String telefone) throws Exception {
         this.nome = nome;
         this.setCpf(cpf);
         this.telefone = telefone;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {

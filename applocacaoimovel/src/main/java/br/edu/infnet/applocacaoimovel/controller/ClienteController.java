@@ -5,26 +5,27 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class ClienteController {
+    private static Map<Integer, Cliente> mapa = new HashMap<Integer, Cliente>();
+    private static Integer id = 1;
 
+    public static void incluir(Cliente cliente){
+        cliente.setId(id++);
+        mapa.put(cliente.getId(), cliente);
+    }
+
+    public static Collection<Cliente> obterLista(){
+        return mapa.values();
+    }
     @GetMapping(value = "/cliente/lista")
     public String telaLista(Model model) throws Exception {
-        Cliente cl1 = new Cliente("Fulano", "12345678901", "(11)123-444");
 
-        Cliente cl2 = new Cliente("Siclano", "45678912341", "(11)789-555");
-
-        Cliente cl3 = new Cliente("Maria", "78912312345", "(11)456-666");
-
-        List<Cliente> clientes = new ArrayList<>();
-        clientes.add(cl1);
-        clientes.add(cl2);
-        clientes.add(cl3);
-
-        model.addAttribute("listagem", clientes);
+        model.addAttribute("listagem", obterLista());
 
         return "cliente/lista";
     }

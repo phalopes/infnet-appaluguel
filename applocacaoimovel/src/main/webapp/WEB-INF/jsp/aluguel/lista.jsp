@@ -51,8 +51,9 @@
     <table class="table table-striped">
         <thead>
         <tr>
+            <th>ID</th>
             <th>Cliente</th>
-            <th>Imóvel Incluso na Proposta</th>
+            <th>Imóveis Inclusos na Proposta</th>
             <th>Período</th>
             <th>Data Início</th>
             <th>Solicitação via Web</th>
@@ -62,6 +63,7 @@
         <tbody>
         <c:forEach var="item" items="${listagem}">
             <tr>
+                <td>${item.id}</td>
                 <td>${item.cliente.nome}</td>
                 <td>| <c:forEach var="imovel" items="${item.imoveis}">${imovel.codigo} | </c:forEach></td>
                 <td>${item.periodo}</td>

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Aluguel {
+    private int id;
     private int periodo;
     private LocalDate inicio;
     private boolean web;
@@ -21,6 +22,14 @@ public class Aluguel {
     public Aluguel(Cliente cliente) {
         this();
         this.cliente = cliente;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Cliente getCliente() {

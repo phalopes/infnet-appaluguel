@@ -27,8 +27,6 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="/cliente/lista">Cliente</a>
                 </li>
-
-                <%-- TODO: Escolher tipo de menu de acordo com as funcionalidades necessárias --%>
                 <li class="nav-item">
                     <a class="nav-link" href="/imovel/lista">Imóvel</a>
                 </li>
@@ -51,6 +49,7 @@
     <table class="table table-striped">
         <thead>
         <tr>
+            <th>ID</th>
             <th>Nome</th>
             <th>CPF</th>
             <th>Telefone</th>
@@ -60,6 +59,7 @@
         <tbody>
         <c:forEach var="item" items="${listagem}">
             <tr>
+                <td>${item.id}</td>
                 <td>${item.nome}</td>
                 <td>${item.cpf}</td>
                 <td>${item.telefone}</td>

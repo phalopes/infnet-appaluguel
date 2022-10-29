@@ -1,93 +1,32 @@
 package br.edu.infnet.applocacaoimovel.controller;
 
-import br.edu.infnet.applocacaoimovel.model.domain.*;
+import br.edu.infnet.applocacaoimovel.model.domain.Aluguel;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class AluguelController {
+    private static Map<Integer, Aluguel> mapa = new HashMap<Integer, Aluguel>();
+    private static Integer id = 1;
+
+    public static void incluir(Aluguel aluguel){
+        aluguel.setId(id++);
+        mapa.put(aluguel.getId(), aluguel);
+    }
+
+    public static Collection<Aluguel> obterLista(){
+        return mapa.values();
+    }
 
     @GetMapping(value = "/aluguel/lista")
     public String telaLista(Model model) throws Exception {
 
-        // CLIENTES
-
-        Cliente cl1 = new Cliente("Cliente 1", "12345678912", "(11)123-444");
-        Cliente cl2 = new Cliente("Cliente 2", "45678912341", "(11)789-444");
-
-        // IMOVEIS
-
-        Studio std1 = new Studio();
-        std1.setValor(1234.3f);
-        std1.setEndereco("Rua 1");
-        std1.setAcessivel(false);
-        std1.setMetragem(45.5f);
-        std1.setCodigo("STD123");
-        std1.setAndar(2);
-        std1.setPortaria(false);
-        std1.setCondominio(350.0f);
-
-        Casa cs1 = new Casa();
-        cs1.setValor(1234.3f);
-        cs1.setEndereco("Rua 1");
-        cs1.setAcessivel(false);
-        cs1.setMetragem(45.5f);
-        cs1.setCodigo("CS4551");
-        cs1.setQuartos(2);
-        cs1.setQuintal(false);
-        cs1.setCor("Laranja");
-
-        SalaComercial slc1 = new SalaComercial();
-        slc1.setValor(1234.3f);
-        slc1.setEndereco("Rua 1");
-        slc1.setAcessivel(false);
-        slc1.setMetragem(45.5f);
-        slc1.setCodigo("SLC45444");
-        slc1.setRecepcao(true);
-        slc1.setElevadores(2);
-        slc1.setCondominio(350.0f);
-
-        // ALUGUEIS
-
-        List<Imovel> imoveisPrimeiroPedido = new ArrayList<>();
-        imoveisPrimeiroPedido.add(std1);
-        imoveisPrimeiroPedido.add(cs1);
-
-        List<Imovel> imoveisSegundoPedido = new ArrayList<>();
-        imoveisSegundoPedido.add(slc1);
-
-        List<Imovel> imoveisTerceiroPedido = new ArrayList<>();
-        imoveisTerceiroPedido.add(std1);
-        imoveisTerceiroPedido.add(slc1);
-        imoveisTerceiroPedido.add(cs1);
-
-        Aluguel al1 = new Aluguel(cl1);
-        al1.setImoveis(imoveisPrimeiroPedido);
-
-        Aluguel al2 = new Aluguel();
-        al2.setInicio(LocalDate.of(2023, 12, 25));
-        al2.setPeriodo(24);
-        al2.setCliente(cl1);
-        al2.setImoveis(imoveisSegundoPedido);
-
-        Aluguel al3 = new Aluguel();
-        al3.setInicio(LocalDate.of(2022, 12, 25));
-        al3.setWeb(false);
-        al3.setCliente(cl2);
-        al3.setImoveis(imoveisTerceiroPedido);
-
-        List<Aluguel> alugueis = new ArrayList<>();
-        alugueis.add(al1);
-        alugueis.add(al2);
-        alugueis.add(al3);
-
-        model.addAttribute("listagem", alugueis);
+        model.addAttribute("listagem", obterLista());
 
         return "aluguel/lista";
     }

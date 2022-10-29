@@ -51,8 +51,10 @@
     <table class="table table-striped">
         <thead>
         <tr>
+            <th>ID</th>
             <th>Código</th>
             <th>Valor</th>
+            <th>M<sup>2</sup></th>
             <th>Endereço</th>
             <th>Acessível</th>
             <th>Andar</th>
@@ -64,8 +66,10 @@
         <tbody>
         <c:forEach var="item" items="${listagem}">
             <tr>
+                <td>${item.id}</td>
                 <td>${item.codigo}</td>
                 <td>${item.valor}</td>
+                <td>${item.metragem}</td>
                 <td>${item.endereco}</td>
                 <td><c:choose><c:when test="${item.acessivel}">Sim</c:when><c:otherwise>Não</c:otherwise></c:choose></td>
                 <td>${item.andar}</td>

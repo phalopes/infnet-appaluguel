@@ -1,5 +1,6 @@
 package br.edu.infnet.applocacaoimovel;
 
+import br.edu.infnet.applocacaoimovel.controller.AluguelController;
 import br.edu.infnet.applocacaoimovel.model.domain.*;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -69,6 +70,7 @@ public class AluguelTeste implements ApplicationRunner {
         Aluguel al1 = new Aluguel(cl1);
         al1.setImoveis(imoveisPrimeiroPedido);
         System.out.println(al1);
+        AluguelController.incluir(al1);
 
         Aluguel al2 = new Aluguel();
         al2.setInicio(LocalDate.of(2023, 12, 25));
@@ -76,6 +78,7 @@ public class AluguelTeste implements ApplicationRunner {
         al2.setCliente(cl1);
         al2.setImoveis(imoveisSegundoPedido);
         System.out.println(al2);
+        AluguelController.incluir(al2);
 
         Aluguel al3 = new Aluguel();
         al3.setInicio(LocalDate.of(2022, 12, 25));
@@ -83,5 +86,6 @@ public class AluguelTeste implements ApplicationRunner {
         al3.setCliente(cl2);
         al3.setImoveis(imoveisTerceiroPedido);
         System.out.println(al3);
+        AluguelController.incluir(al3);
     }
 }
