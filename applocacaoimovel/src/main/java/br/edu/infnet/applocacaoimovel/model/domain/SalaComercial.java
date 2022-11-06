@@ -1,5 +1,11 @@
 package br.edu.infnet.applocacaoimovel.model.domain;
 
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tb_sala_comercial")
 public class SalaComercial extends Imovel{
     private int elevadores;
     private boolean recepcao;

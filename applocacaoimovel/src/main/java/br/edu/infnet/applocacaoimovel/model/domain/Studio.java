@@ -1,5 +1,10 @@
 package br.edu.infnet.applocacaoimovel.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tb_studio")
 public class Studio extends Imovel{
     private int andar;
     private boolean portaria;

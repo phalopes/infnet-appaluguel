@@ -1,27 +1,26 @@
 package br.edu.infnet.applocacaoimovel.model.service;
 
 import br.edu.infnet.applocacaoimovel.model.domain.SalaComercial;
+import br.edu.infnet.applocacaoimovel.model.repository.SalaComercialRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 @Service
 public class SalaComercialService {
-    private static Map<Integer, SalaComercial> mapa = new HashMap<Integer, SalaComercial>();
-    private static Integer id = 1;
+    @Autowired
+    private SalaComercialRepository salaComercialRepository;
 
     public void incluir(SalaComercial salaComercial){
-        salaComercial.setId(id++);
-        mapa.put(salaComercial.getId(), salaComercial);
+        salaComercialRepository.save(salaComercial);
     }
 
     public Collection<SalaComercial> obterLista(){
-        return mapa.values();
+        return (Collection<SalaComercial>) salaComercialRepository.findAll();
     }
 
     public void excluir(Integer id){
-        mapa.remove(id);
+        salaComercialRepository.deleteById(id);
     }
 }

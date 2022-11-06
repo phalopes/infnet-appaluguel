@@ -1,27 +1,26 @@
 package br.edu.infnet.applocacaoimovel.model.service;
 
 import br.edu.infnet.applocacaoimovel.model.domain.Studio;
+import br.edu.infnet.applocacaoimovel.model.repository.StudioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 @Service
 public class StudioService {
-    private static Map<Integer, Studio> mapa = new HashMap<Integer, Studio>();
-    private static Integer id = 1;
+    @Autowired
+    private StudioRepository studioRepository;
 
     public void incluir(Studio studio){
-        studio.setId(id++);
-        mapa.put(studio.getId(), studio);
+        studioRepository.save(studio);
     }
 
     public Collection<Studio> obterLista(){
-        return mapa.values();
+        return (Collection<Studio>) studioRepository.findAll();
     }
 
     public void excluir(Integer id){
-        mapa.remove(id);
+        studioRepository.deleteById(id);
     }
 }

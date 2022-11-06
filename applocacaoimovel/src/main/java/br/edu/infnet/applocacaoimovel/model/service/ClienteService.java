@@ -1,27 +1,26 @@
 package br.edu.infnet.applocacaoimovel.model.service;
 
 import br.edu.infnet.applocacaoimovel.model.domain.Cliente;
+import br.edu.infnet.applocacaoimovel.model.repository.ClienteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 @Service
 public class ClienteService {
-    private static Map<Integer, Cliente> mapa = new HashMap<Integer, Cliente>();
-    private static Integer id = 1;
+    @Autowired
+    private ClienteRepository clienteRepository;
 
     public void incluir(Cliente cliente){
-        cliente.setId(id++);
-        mapa.put(cliente.getId(), cliente);
+        clienteRepository.save(cliente);
     }
 
     public Collection<Cliente> obterLista(){
-        return mapa.values();
+        return (Collection<Cliente>) clienteRepository.findAll();
     }
 
     public void excluir(Integer id) {
-        mapa.remove(id);
+        clienteRepository.deleteById(id);
     }
 }

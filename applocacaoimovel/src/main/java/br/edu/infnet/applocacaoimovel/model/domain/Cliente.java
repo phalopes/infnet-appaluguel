@@ -1,6 +1,12 @@
 package br.edu.infnet.applocacaoimovel.model.domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "tb_cliente")
 public class Cliente {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nome;
     private String cpf;
