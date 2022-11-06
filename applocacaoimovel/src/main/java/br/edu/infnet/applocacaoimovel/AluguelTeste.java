@@ -1,7 +1,8 @@
 package br.edu.infnet.applocacaoimovel;
 
-import br.edu.infnet.applocacaoimovel.controller.AluguelController;
 import br.edu.infnet.applocacaoimovel.model.domain.*;
+import br.edu.infnet.applocacaoimovel.model.service.AluguelService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -12,6 +13,8 @@ import java.util.List;
 
 @Component
 public class AluguelTeste implements ApplicationRunner {
+    @Autowired
+    private AluguelService aluguelService;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
@@ -70,22 +73,22 @@ public class AluguelTeste implements ApplicationRunner {
         Aluguel al1 = new Aluguel(cl1);
         al1.setImoveis(imoveisPrimeiroPedido);
         System.out.println(al1);
-        AluguelController.incluir(al1);
+        aluguelService.incluir(al1);
 
         Aluguel al2 = new Aluguel();
-        al2.setInicio(LocalDate.of(2023, 12, 25));
+        al2.setDataInicio(LocalDate.of(2023, 12, 25));
         al2.setPeriodo(24);
         al2.setCliente(cl1);
         al2.setImoveis(imoveisSegundoPedido);
         System.out.println(al2);
-        AluguelController.incluir(al2);
+        aluguelService.incluir(al2);
 
         Aluguel al3 = new Aluguel();
-        al3.setInicio(LocalDate.of(2022, 12, 25));
+        al3.setDataInicio(LocalDate.of(2022, 12, 25));
         al3.setWeb(false);
         al3.setCliente(cl2);
         al3.setImoveis(imoveisTerceiroPedido);
         System.out.println(al3);
-        AluguelController.incluir(al3);
+        aluguelService.incluir(al3);
     }
 }
