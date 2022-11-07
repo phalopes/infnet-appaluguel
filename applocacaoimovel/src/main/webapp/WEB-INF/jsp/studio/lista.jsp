@@ -8,45 +8,16 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Locação Imóvel - Cadastramento de Studios</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Locação Imóvel - Studios</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">AppAluguel</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="container-fluid">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/aluguel/lista">Aluguel</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/cliente/lista">Cliente</a>
-                </li>
 
-                <%-- TODO: Escolher tipo de menu de acordo com as funcionalidades necessárias --%>
-                <li class="nav-item">
-                    <a class="nav-link" href="/imovel/lista">Imóvel</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/sala-comercial/lista">Sala Comercial</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="/studio/lista">Studio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/casa/lista">Casa</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<c:import url="/WEB-INF/jsp/menu.jsp"/>
+
 <div class="container mt-3">
     <h3>Studios: ${listagem.size()}</h3>
+    <h4><a href="/studio">+ Cadastrar Studio</a></h4>
     <c:choose>
         <c:when test="${listagem.size() == 0}">
             <p>Ainda não há Studios cadastrados no sistema.</p>

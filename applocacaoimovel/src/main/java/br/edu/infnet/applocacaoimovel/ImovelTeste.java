@@ -8,8 +8,10 @@ import br.edu.infnet.applocacaoimovel.model.service.ImovelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+@Order(6)
 @Component
 public class ImovelTeste implements ApplicationRunner {
     @Autowired

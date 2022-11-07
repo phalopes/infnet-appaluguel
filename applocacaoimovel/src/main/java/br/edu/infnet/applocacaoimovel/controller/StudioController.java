@@ -7,8 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
-import java.util.*;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class StudioController {
@@ -23,9 +22,20 @@ public class StudioController {
     }
 
     @GetMapping(value = "/studio/{id}/excluir")
-    public String exclusao(@PathVariable Integer id){
+    public String excluir(@PathVariable Integer id){
         System.out.println("ID: " + id);
         studioService.excluir(id);
+        return "redirect:/studio/lista";
+    }
+
+    @GetMapping(value = "/studio")
+    public String cadastro(){
+        return "studio/cadastro";
+    }
+
+    @PostMapping(value = "/studio/incluir")
+    public String incluir(Studio studio){
+        studioService.incluir(studio);
         return "redirect:/studio/lista";
     }
 }

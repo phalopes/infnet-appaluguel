@@ -5,12 +5,14 @@ import br.edu.infnet.applocacaoimovel.model.service.AluguelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Order(7)
 @Component
 public class AluguelTeste implements ApplicationRunner {
     @Autowired

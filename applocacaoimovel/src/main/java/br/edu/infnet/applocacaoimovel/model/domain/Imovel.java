@@ -5,6 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "tb_imovel")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Imovel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

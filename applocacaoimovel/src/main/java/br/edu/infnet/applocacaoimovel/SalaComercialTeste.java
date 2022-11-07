@@ -5,8 +5,10 @@ import br.edu.infnet.applocacaoimovel.model.service.SalaComercialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+@Order(4)
 @Component
 public class SalaComercialTeste implements ApplicationRunner {
     @Autowired

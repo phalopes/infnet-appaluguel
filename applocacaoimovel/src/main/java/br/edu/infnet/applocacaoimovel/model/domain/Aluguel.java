@@ -1,17 +1,24 @@
 package br.edu.infnet.applocacaoimovel.model.domain;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "tb_aluguel")
 public class Aluguel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int periodo;
     private LocalDate dataInicio;
     private boolean web;
     private LocalDateTime dataRequisicao;
+    @Transient
     private Cliente cliente;
+    @Transient
     private List<Imovel> imoveis;
 
     public Aluguel() {

@@ -21,7 +21,7 @@ public class ImovelController {
     }
 
     @GetMapping(value = "/imovel/{id}/excluir")
-    public String exclusao(@PathVariable Integer id){
+    public String excluir(@PathVariable Integer id){
         System.out.println("ID: " + id);
         imovelService.excluir(id);
         return "redirect:/imovel/lista";
