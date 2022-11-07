@@ -1,13 +1,18 @@
 package br.edu.infnet.applocacaoimovel;
 
-import br.edu.infnet.applocacaoimovel.controller.StudioController;
 import br.edu.infnet.applocacaoimovel.model.domain.Studio;
+import br.edu.infnet.applocacaoimovel.model.service.StudioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+@Order(3)
 @Component
 public class StudioTeste implements ApplicationRunner {
+    @Autowired
+    private StudioService studioService;
     @Override
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("## Studio ##");
@@ -22,7 +27,7 @@ public class StudioTeste implements ApplicationRunner {
         std1.setPortaria(false);
         std1.setCondominio(350.0f);
         System.out.println("Studio " + std1);
-        StudioController.incluir(std1);
+        studioService.incluir(std1);
 
         Studio std2 = new Studio();
         std2.setValor(4567.3f);
@@ -34,7 +39,7 @@ public class StudioTeste implements ApplicationRunner {
         std2.setPortaria(true);
         std2.setCondominio(350.0f);
         System.out.println("Studio " + std2);
-        StudioController.incluir(std2);
+        studioService.incluir(std2);
 
         Studio std3 = new Studio();
         std3.setValor(1012.0f);
@@ -46,6 +51,6 @@ public class StudioTeste implements ApplicationRunner {
         std3.setPortaria(true);
         std3.setCondominio(650.0f);
         System.out.println("Studio " + std3);
-        StudioController.incluir(std3);
+        studioService.incluir(std3);
     }
 }

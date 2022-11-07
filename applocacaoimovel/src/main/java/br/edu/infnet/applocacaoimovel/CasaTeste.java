@@ -1,13 +1,19 @@
 package br.edu.infnet.applocacaoimovel;
 
-import br.edu.infnet.applocacaoimovel.controller.CasaController;
 import br.edu.infnet.applocacaoimovel.model.domain.Casa;
+import br.edu.infnet.applocacaoimovel.model.service.CasaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+@Order(5)
 @Component
 public class CasaTeste implements ApplicationRunner {
+    @Autowired
+    private CasaService casaService;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("## Casa ##");
@@ -21,7 +27,7 @@ public class CasaTeste implements ApplicationRunner {
         cs1.setQuintal(false);
         cs1.setCor("Laranja");
         System.out.println("Casa " + cs1);
-        CasaController.incluir(cs1);
+        casaService.incluir(cs1);
 
         Casa cs2 = new Casa();
         cs2.setValor(4567.3f);
@@ -33,7 +39,7 @@ public class CasaTeste implements ApplicationRunner {
         cs2.setQuintal(true);
         cs2.setCor("Branco");
         System.out.println("Casa " + cs2);
-        CasaController.incluir(cs2);
+        casaService.incluir(cs2);
 
         Casa cs3 = new Casa();
         cs3.setValor(8012.3f);
@@ -45,6 +51,6 @@ public class CasaTeste implements ApplicationRunner {
         cs3.setQuintal(true);
         cs3.setCor("Verde");
         System.out.println("Casa " + cs3);
-        CasaController.incluir(cs3);
+        casaService.incluir(cs3);
     }
 }

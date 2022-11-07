@@ -9,37 +9,30 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <title>Locação Imóvel - Casas</title>
+    <title>Locação Imóvel - Usuário</title>
 </head>
 <body>
 
 <c:import url="/WEB-INF/jsp/menu.jsp"/>
 
 <div class="container mt-3">
-    <h3>Casas: ${listagem.size()}</h3>
-    <h4><a href="/casa">+ Cadastrar Casa</a></h4>
+    <h3>Usuários: ${listagem.size()}</h3>
     <c:choose>
         <c:when test="${listagem.size() == 0}">
-            <p>Ainda não há Casas cadastradas no sistema.</p>
+            <p>Ainda não há Usuários cadastrados no sistema.</p>
         </c:when>
         <c:otherwise>
-            <p>Abaixo seguem as Casas disponíveis para Aluguel:</p>
+            <p>Abaixo seguem os usuários cadastrados no Sistema:</p>
         </c:otherwise>
     </c:choose>
-
 
     <table class="table table-striped">
         <thead>
         <tr>
             <th>ID</th>
-            <th>Código</th>
-            <th>Valor</th>
-            <th>M<sup>2</sup></th>
-            <th>Endereço</th>
-            <th>Acessível</th>
-            <th>Possui Quintal</th>
-            <th>Qtd. Quartos</th>
-            <th>Cor</th>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Senha</th>
             <th></th>
         </tr>
         </thead>
@@ -47,15 +40,10 @@
         <c:forEach var="item" items="${listagem}">
             <tr>
                 <td>${item.id}</td>
-                <td>${item.codigo}</td>
-                <td>${item.valor}</td>
-                <td>${item.metragem}</td>
-                <td>${item.endereco}</td>
-                <td><c:choose><c:when test="${item.acessivel}">Sim</c:when><c:otherwise>Não</c:otherwise></c:choose></td>
-                <td><c:choose><c:when test="${item.quintal}">Sim</c:when><c:otherwise>Não</c:otherwise></c:choose></td>
-                <td>${item.quartos}</td>
-                <td>${item.cor}</td>
-                <td><a href="/casa/${item.id}/excluir" class="btn btn-danger">Excluir</a></td>
+                <td>${item.nome}</td>
+                <td>${item.email}</td>
+                <td>${item.senha}</td>
+                <td><a href="/cliente/${item.id}/excluir" class="btn btn-danger">Excluir</a></td>
             </tr>
         </c:forEach>
         </tbody>

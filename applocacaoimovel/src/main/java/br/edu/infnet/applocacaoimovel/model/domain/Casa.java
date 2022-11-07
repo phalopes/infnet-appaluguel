@@ -1,5 +1,11 @@
 package br.edu.infnet.applocacaoimovel.model.domain;
 
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "tb_casa")
 public class Casa extends Imovel{
     private boolean quintal;
     private int quartos;

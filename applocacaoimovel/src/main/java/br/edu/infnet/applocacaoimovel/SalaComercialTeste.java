@@ -1,13 +1,19 @@
 package br.edu.infnet.applocacaoimovel;
 
-import br.edu.infnet.applocacaoimovel.controller.SalaComercialController;
 import br.edu.infnet.applocacaoimovel.model.domain.SalaComercial;
+import br.edu.infnet.applocacaoimovel.model.service.SalaComercialService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+@Order(4)
 @Component
 public class SalaComercialTeste implements ApplicationRunner {
+    @Autowired
+    private SalaComercialService salaComercialService;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("## Sala Comercial ##");
@@ -22,7 +28,7 @@ public class SalaComercialTeste implements ApplicationRunner {
         slc1.setElevadores(2);
         slc1.setCondominio(350.0f);
         System.out.println("SalaComercial " + slc1);
-        SalaComercialController.incluir(slc1);
+        salaComercialService.incluir(slc1);
 
         SalaComercial slc2 = new SalaComercial();
         slc2.setValor(4500.0f);
@@ -34,7 +40,7 @@ public class SalaComercialTeste implements ApplicationRunner {
         slc2.setElevadores(6);
         slc2.setCondominio(1350.0f);
         System.out.println("SalaComercial " + slc2);
-        SalaComercialController.incluir(slc2);
+        salaComercialService.incluir(slc2);
 
         SalaComercial slc3 = new SalaComercial();
         slc3.setValor(1050.0f);
@@ -46,6 +52,6 @@ public class SalaComercialTeste implements ApplicationRunner {
         slc3.setElevadores(1);
         slc3.setCondominio(650.0f);
         System.out.println("SalaComercial " + slc3);
-        SalaComercialController.incluir(slc3);
+        salaComercialService.incluir(slc3);
     }
 }

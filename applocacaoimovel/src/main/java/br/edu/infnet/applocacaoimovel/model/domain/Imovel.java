@@ -1,6 +1,14 @@
 package br.edu.infnet.applocacaoimovel.model.domain;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "tb_imovel")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Imovel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String endereco;
     private float valor;

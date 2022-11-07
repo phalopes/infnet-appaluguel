@@ -1,10 +1,19 @@
 package br.edu.infnet.applocacaoimovel.model.domain;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "tb_cliente")
 public class Cliente {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nome;
     private String cpf;
     private String telefone;
+    @ManyToOne
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
 
     public Cliente(){
 
@@ -70,6 +79,14 @@ public class Cliente {
         }
 
         return hashedCpf.toString();
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override
