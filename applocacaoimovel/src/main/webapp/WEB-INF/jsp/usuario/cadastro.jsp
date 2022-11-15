@@ -15,6 +15,13 @@
 <c:import url="/WEB-INF/jsp/menu.jsp"/>
 
 <div class="container">
+    <form action="/cep" class="form-inline" method="post">
+        <div class="form-group">
+            <label for="cep">CEP:</label>
+            <input type="text" class="form-control" id="cep" placeholder="Entre com seu cep" name="cep">
+        </div>
+        <button type="submit" class="btn btn-default">Buscar</button>
+    </form>
     <h2>Cadastro Usuário:</h2>
     <form action="/usuario/incluir" method="post">
         <div class="form-group">
@@ -29,6 +36,7 @@
             <label for="pwd">Senha:</label>
             <input type="password" class="form-control" id="pwd" placeholder="Entre com sua senha" name="senha">
         </div>
+        <c:import url="/WEB-INF/jsp/endereco.jsp"/>
         <button type="submit" class="btn btn-default">Cadastrar</button>
     </form>
 </div>

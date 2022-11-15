@@ -22,13 +22,22 @@ public class AluguelTeste implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("## Aluguel ##");
 
+        Usuario usuario = new Usuario();
+        usuario.setId(1);
+
         // CLIENTES
 
         Cliente cl1 = new Cliente("Cliente 1", "12345678912", "(11)123-444");
+        cl1.setId(1);
+        cl1.setUsuario(usuario);
+
         Cliente cl2 = new Cliente("Cliente 2", "45678912341", "(11)789-444");
+        cl2.setId(2);
+        cl2.setUsuario(usuario);
 
         // IMOVEIS
         Studio std1 = new Studio();
+        std1.setId(1);
         std1.setValor(1234.3f);
         std1.setEndereco("Rua 1");
         std1.setAcessivel(false);
@@ -39,6 +48,7 @@ public class AluguelTeste implements ApplicationRunner {
         std1.setCondominio(350.0f);
 
         Casa cs1 = new Casa();
+        cs1.setId(2);
         cs1.setValor(1234.3f);
         cs1.setEndereco("Rua 1");
         cs1.setAcessivel(false);
@@ -49,6 +59,7 @@ public class AluguelTeste implements ApplicationRunner {
         cs1.setCor("Laranja");
 
         SalaComercial slc1 = new SalaComercial();
+        slc1.setId(3);
         slc1.setValor(1234.3f);
         slc1.setEndereco("Rua 1");
         slc1.setAcessivel(false);

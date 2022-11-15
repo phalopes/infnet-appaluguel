@@ -1,27 +1,31 @@
 package br.edu.infnet.applocacaoimovel.model.service;
 
 import br.edu.infnet.applocacaoimovel.model.domain.Aluguel;
+import br.edu.infnet.applocacaoimovel.model.domain.Usuario;
+import br.edu.infnet.applocacaoimovel.model.repository.AluguelRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 @Service
 public class AluguelService {
-    private static Map<Integer, Aluguel> mapa = new HashMap<Integer, Aluguel>();
-    private static Integer id = 1;
+    @Autowired
+    private AluguelRepository aluguelRepository;
 
     public void incluir(Aluguel aluguel){
-        aluguel.setId(id++);
-        mapa.put(aluguel.getId(), aluguel);
+        aluguelRepository.save(aluguel);
     }
 
     public Collection<Aluguel> obterLista(){
-        return mapa.values();
+        return (Collection<Aluguel>) aluguelRepository.findAll();
+    }
+
+    public Collection<Aluguel> obterLista(Usuario usuario){
+        return (Collection<Aluguel>) aluguelRepository.obterLista(usuario.getId());
     }
 
     public void excluir(Integer id) {
-        mapa.remove(id);
+        aluguelRepository.deleteById(id);
     }
 }

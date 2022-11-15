@@ -16,10 +16,14 @@ public class Aluguel {
     private LocalDate dataInicio;
     private boolean web;
     private LocalDateTime dataRequisicao;
-    @Transient
+    @OneToOne(cascade = CascadeType.DETACH)
+    @JoinColumn(name = "idCliente")
     private Cliente cliente;
-    @Transient
+    @ManyToMany(cascade = CascadeType.DETACH)
     private List<Imovel> imoveis;
+    @ManyToOne
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
 
     public Aluguel() {
         this.periodo = 30;
@@ -84,6 +88,14 @@ public class Aluguel {
 
     public void setImoveis(List<Imovel> imoveis) {
         this.imoveis = imoveis;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override
