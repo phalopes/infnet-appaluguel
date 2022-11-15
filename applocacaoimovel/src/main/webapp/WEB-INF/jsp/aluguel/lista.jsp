@@ -17,6 +17,7 @@
 
 <div class="container mt-3">
     <h3>Aluguéis: ${listagem.size()}</h3>
+    <h4><a href="/aluguel">+ Cadastrar Aluguel</a></h4>
     <c:choose>
         <c:when test="${listagem.size() == 0}">
             <p>Ainda não há Aluguéis solicitados no sistema.</p>

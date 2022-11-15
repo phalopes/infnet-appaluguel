@@ -2,6 +2,7 @@ package br.edu.infnet.applocacaoimovel.model.domain;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_imovel")
@@ -15,6 +16,11 @@ public abstract class Imovel {
     private float metragem;
     private boolean acessivel;
     private String codigo;
+    @ManyToOne
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
+    @ManyToMany(mappedBy = "imoveis")
+    private List<Aluguel> alugueis;
 
     public int getId() {
         return id;
@@ -62,6 +68,22 @@ public abstract class Imovel {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public List<Aluguel> getAlugueis() {
+        return alugueis;
+    }
+
+    public void setAlugueis(List<Aluguel> alugueis) {
+        this.alugueis = alugueis;
     }
 
     @Override

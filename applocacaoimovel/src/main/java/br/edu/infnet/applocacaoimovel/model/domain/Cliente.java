@@ -14,6 +14,9 @@ public class Cliente {
     @ManyToOne
     @JoinColumn(name = "idUsuario")
     private Usuario usuario;
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "idEndereco")
+    private Endereco endereco;
 
     public Cliente(){
 
@@ -87,6 +90,14 @@ public class Cliente {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
     @Override

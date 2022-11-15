@@ -12,10 +12,18 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
-
     @OneToMany
     @JoinColumn(name = "idUsuario")
     private List<Cliente> clientes;
+    @OneToMany
+    @JoinColumn(name = "idUsuario")
+    private List<Aluguel> alugueis;
+    @OneToMany
+    @JoinColumn(name = "idUsuario")
+    private List<Imovel> imoveis;
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "idEndereco")
+    private Endereco endereco;
 
     public Usuario(){
 
@@ -64,6 +72,30 @@ public class Usuario {
 
     public void setClientes(List<Cliente> clientes) {
         this.clientes = clientes;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public List<Aluguel> getAlugueis() {
+        return alugueis;
+    }
+
+    public void setAlugueis(List<Aluguel> alugueis) {
+        this.alugueis = alugueis;
+    }
+
+    public List<Imovel> getImoveis() {
+        return imoveis;
+    }
+
+    public void setImoveis(List<Imovel> imoveis) {
+        this.imoveis = imoveis;
     }
 
     @Override

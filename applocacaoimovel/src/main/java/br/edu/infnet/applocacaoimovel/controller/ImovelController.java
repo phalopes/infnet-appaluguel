@@ -1,11 +1,13 @@
 package br.edu.infnet.applocacaoimovel.controller;
 
+import br.edu.infnet.applocacaoimovel.model.domain.Usuario;
 import br.edu.infnet.applocacaoimovel.model.service.ImovelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 @Controller
 public class ImovelController {
@@ -13,9 +15,9 @@ public class ImovelController {
     private ImovelService imovelService;
 
     @GetMapping(value = "/imovel/lista")
-    public String telaLista(Model model){
+    public String telaLista(Model model, @SessionAttribute("user") Usuario usuario){
 
-        model.addAttribute("listagem", imovelService.obterLista());
+        model.addAttribute("listagem", imovelService.obterLista(usuario));
 
         return "imovel/lista";
     }
